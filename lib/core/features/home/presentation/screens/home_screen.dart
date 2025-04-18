@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 String name = "Susy";
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> userHabits = ["Meditating", "Exercise", "Read a Book"];
 
   @override
   Widget build(BuildContext context) {
@@ -123,74 +124,36 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: 10.0,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: HabitItem(width: double.infinity,
-                      height: 58,
-                      background: HexColor('#3843FF').withValues(alpha: 0.1),
-                      text: 'Meditating',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                        color: HexColor('#3843FF')
-                      ),
+                Expanded(
+                  child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      // padding: const EdgeInsets.all(10.0),
+                      itemCount: userHabits.length,
+                      itemBuilder:(context, index){
+                        return Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: HabitItem(width: double.infinity,
+                            height: 58,
+                            background: HexColor('#3843FF').withValues(alpha: 0.1),
+                            text: 'Meditating',
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: HexColor('#3843FF')
+                            ),
 
-                      onChecked: (bool? checked){
-                        setState(() {
-                          //habitStates[habit] = checked ?? false;
-                        });
-                      },
-                      iconSize: 20.0,
-                      iconColor: HexColor('#666666'),
-                      fillColor: HexColor('#3843FF').withValues(alpha: 0.1),
-                      checkColor: Colors.white, onPressed: () {  },
-                    checkboxSize: 30.0, borderColor: HexColor('#3843FF').withValues(alpha: 0.1), borderWidth: null,),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: HabitItem(width: double.infinity,
-                    height: 58,
-                    background: HexColor('#3843FF').withValues(alpha: 0.1),
-                    text: 'Meditating',
-                    style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                        color: HexColor('#3843FF')
-                    ),
-
-                    onChecked: (bool? checked){
-                      setState(() {
-                        //habitStates[habit] = checked ?? false;
-                      });
-                    },
-                    iconSize: 20.0,
-                    iconColor: HexColor('#666666'),
-                    fillColor: HexColor('#3843FF').withValues(alpha: 0.1),
-                    checkColor: Colors.white, onPressed: () {  },
-                    checkboxSize: 30.0, borderColor: HexColor('#3843FF').withValues(alpha: 0.1), borderWidth: null,),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: HabitItem(width: double.infinity,
-                    height: 58,
-                    background: HexColor('#3843FF').withValues(alpha: 0.1),
-                    text: 'Meditating',
-                    style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                        color: HexColor('#3843FF')
-                    ),
-
-                    onChecked: (bool? checked){
-                      setState(() {
-                        //habitStates[habit] = checked ?? false;
-                      });
-                    },
-                    iconSize: 20.0,
-                    iconColor: HexColor('#666666'),
-                    fillColor: HexColor('#3843FF').withValues(alpha: 0.1),
-                    checkColor: Colors.white, onPressed: () {  },
-                    checkboxSize: 30.0, borderColor: HexColor('#3843FF').withValues(alpha: 0.1), borderWidth: null,),
+                            onChecked: (bool? checked){
+                              setState(() {
+//habitStates[habit] = checked ?? false;
+                              });
+                            },
+                            iconSize: 20.0,
+                            iconColor: HexColor('#666666'),
+                            fillColor: HexColor('#3843FF').withValues(alpha: 0.1),
+                            checkColor: Colors.white, onPressed: () {  },
+                            checkboxSize: 30.0, borderColor: HexColor('#3843FF').withValues(alpha: 0.1), borderWidth: null,),
+                        );
+                      }),
                 ),
 
 
@@ -204,4 +167,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-//
