@@ -21,17 +21,22 @@ class HabitItem extends StatelessWidget {
   final double? borderWidth;
 
 
-  const HabitItem({super.key, required this.width,
+  const HabitItem({super.key,
+    required this.width,
     required this.height,
     required this.background,
     required this.text,
     required this.style,
     this.isChecked=false,
     required this.onChecked,
-    this.icon= const Icon(Icons.more_vert),
-    required this.iconSize, required this.iconColor,
+    this.icon=const Icon(Icons.more_vert),
+    required this.iconSize,
+    required this.iconColor,
     required this.fillColor,
-    required this.checkColor, required this.onPressed, required this.checkboxSize, required this.borderColor,
+    required this.checkColor,
+    required this.onPressed,
+    required this.checkboxSize,
+    required this.borderColor,
     this.borderWidth,
   });
 
@@ -61,7 +66,7 @@ class HabitItem extends StatelessWidget {
                   onChanged: onChecked,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
-                    side: BorderSide(color: borderColor, width: borderWidth??0.1),
+                      side: BorderSide(color: borderColor, width: borderWidth??0.1),
                   ),
                   fillColor: WidgetStateProperty.all(fillColor),
                   checkColor: checkColor,),

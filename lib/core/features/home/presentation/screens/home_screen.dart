@@ -4,6 +4,8 @@ import 'package:home_screen_test/core/shared/widgets/habit_item.dart';
 import 'package:home_screen_test/core/shared/widgets/see_text_button.dart';
 import 'package:home_screen_test/core/shared/widgets/today_habit.dart';
 
+import 'habits_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -15,6 +17,8 @@ String name = "Susy";
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> userHabits = ["Meditating", "Exercise", "Read a Book"];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +115,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         )),
                   ), //today habit
                     SeeTextButton(onPressed:  () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HabitsScreen(),
+                        ),
+                      );
 
                     },
                         text: 'See all',
@@ -133,7 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       physics: BouncingScrollPhysics(),
                       padding: const EdgeInsets.all(10.0),
                       itemBuilder: (context, index){
-                        return HabitItem(width: double.infinity,
+                        return HabitItem(
+                          width: double.infinity,
                           height: 58,
                           background: HexColor('#3843FF').withValues(alpha: 0.1),
                           text: userHabits[index],
@@ -145,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                           onChecked: (bool? checked){
                             setState(() {
-                              //
+
                             });
                           },
                           iconSize: 20.0,
