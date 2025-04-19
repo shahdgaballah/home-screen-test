@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class TodayHabit extends StatelessWidget {
-  final double width;
-  final Color background;
+  final double? width;
   final String text;
   final TextStyle style;
 
   const TodayHabit({super.key,
-    required this.width,
-    this.background=Colors.white,
+     this.width,
+
     this.text='Today Habit',
     required this.style,
   });
@@ -17,16 +16,18 @@ class TodayHabit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
+      width: double.infinity,
+      height: 297.0,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: background,
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12.0)
       ),
       child: Row(
         children: [
           Text(text,
             style: style,
           ),
+
         ],
       ),
     );
